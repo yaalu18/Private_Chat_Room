@@ -1,0 +1,33 @@
+//api using axios
+import axios from 'axios';
+
+// Create a room
+export const createRoom = async (name) => {
+  try {
+    await axios.post('/createRoom', { name });
+  } catch (error) {
+    throw new Error('Room already exists');
+  }
+};
+//api using socket.io 
+import io from 'socket.io-client';
+
+// Connect to the Socket.IO server
+const socket = io('http://localhost:4000'); // Replace with your server's URL
+
+// Handle connection events
+socket.on('connect', () => {
+  console.log('Connected to server');
+});
+
+socket.on('disconnect', () => {
+  console.log('Disconnected from server');
+});
+
+// Handle custom events
+socket.on('someEvent', (data) => {
+  console.log('Received data:', data);
+});
+
+// Emit events to the server
+socket.emit('createRoom', { name: 'New Room' });
