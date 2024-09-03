@@ -2,7 +2,8 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 // Create a socket connection to the server
-const socket = io('http://localhost:4000'); // Replace with your server's URL
+//const socket = io('http://localhost:4000'); // Replace with your server's URL
+const socket = io("provate-chat-room-server-1ge35su69-yaalu18s-projects.vercel.app"); // Replace with your server's URL
 
 /**
  * Function to create a room via HTTP POST request.
@@ -15,7 +16,8 @@ export async function createRoomHttp(roomName) {
   }
 
   try {
-    const response = await axios.post('http://localhost:4000/createRoom', { name: roomName });
+    //const response = await axios.post('http://localhost:4000/createRoom', { name: roomName });
+    const response = await axios.post('provate-chat-room-server-1ge35su69-yaalu18s-projects.vercel.app/createRoom', { name: roomName });
     console.log('Room created:', response.data);
     // Additional logic here (e.g., handle success response)
     return response.data;

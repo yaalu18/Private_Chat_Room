@@ -4,7 +4,8 @@ import { createRoomHttp, createRoomSocket } from './api'; // Adjusted import
 import ChatRoom from './ChatRoom';
 
 // Establish a connection to the Socket.IO server
-const socket = io('http://localhost:4000');
+//const socket = io('http://localhost:4000');
+const socket = io('provate-chat-room-server-1ge35su69-yaalu18s-projects.vercel.app');
 
 function App() {
   const [roomName, setRoomName] = useState('');
